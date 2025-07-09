@@ -1,3 +1,0 @@
-#!/bin/sh
-unset NODE_OPTIONS
-ELECTRON_RUN_AS_NODE=1 "/Users/x0r/Applications/VSCodium.app/Contents/Frameworks/VSCodium Helper (Plugin).app/Contents/MacOS/VSCodium Helper (Plugin)" "/Users/x0r/.config/VSCodium/User/globalStorage/github.copilot-chat/debugCommand/copilotDebugCommand.js" "vscodium://github.copilot-chat" "" "$@"
