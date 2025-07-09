@@ -1,0 +1,6 @@
+{
+    "require": {
+        "laravel/valet": "^4.8",
+        "weprovide/valet-plus": "^3.0"
+    }
+}

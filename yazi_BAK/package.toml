@@ -1,0 +1,189 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "f202fa8"
+hash = "5be5885898ca9df783bdec0d402bf4b0"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "f202fa8"
+hash = "882ed23839778f82dc137248979c8681"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "f202fa8"
+hash = "9bc26d10d2f6e2aa93b10905b1b76979"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "f202fa8"
+hash = "4c7e8fd0266eedee7b619d966bd2d025"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:diff"
+rev = "f202fa8"
+hash = "284f6694e3b1a4afd686acf1052acd90"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "f202fa8"
+hash = "72c66a0b3d60f8377eb9db5e1d8b60b2"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "f202fa8"
+hash = "ea24edab4a62c94dbd205adfb6f2c08d"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mactag"
+rev = "f202fa8"
+hash = "2a3dccee5cd9ff53e4a49c0a4d52a34"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "f202fa8"
+hash = "4d6a07559118975e2dee983d27474d70"
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "5ce76dc"
+hash = "52e5f5c602962e7cbf874da28f52ba45"
+
+[[plugin.deps]]
+use = "Reledia/miller"
+rev = "40e0265"
+hash = "2d6d77583162aaf0a599e7a3091b5878"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "af8bf6f"
+hash = "3e56b7665569519e3fc54b02868627c4"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/bypass"
+rev = "6c5414f"
+hash = "905054b2df08ff79af223e0b6f249fa3"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "9328205"
+hash = "3e51d1fd8a2e481fcfa8eab1251d1c5f"
+
+[[plugin.deps]]
+use = "imsi32/yatline-githead"
+rev = "a6377a8"
+hash = "4f1a71eff1dd8f245ae2e3985e3e2f91"
+
+[[plugin.deps]]
+use = "kirasok/torrent-preview"
+rev = "c9e67df"
+hash = "f0d9a684da8e4ab9ccbcd255a97cf42b"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "df97039"
+hash = "395940d2b22941e0acb1232579c9d4cf"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "083d564"
+hash = "1e4c0ac1fca31a23412324710193358a"
+
+[[plugin.deps]]
+use = "Sonico98/exifaudio"
+rev = "d794614"
+hash = "a8e15d3c21c02a5af41d46ed04778a02"
+
+[[plugin.deps]]
+use = "BBOOXX/file-actions"
+rev = "0e4dd45"
+hash = "cf5dd83835d615a41e28158f903be3cc"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "60b24af"
+hash = "ee025be766240cc98e671754ac836da3"
+
+[[plugin.deps]]
+use = "KKV9/command"
+rev = "95a29be"
+hash = "65fff40a0060fe4b1c42d49d29f770fd"
+
+[[plugin.deps]]
+use = "GrzegorzKozub/mdcat"
+rev = "d3d5089"
+hash = "40c20e6c1085d1f45309b9f148bf4f6e"
+
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "c82794f"
+hash = "2b0c33928986f126d5c5a4cac31a6b46"
+
+[[plugin.deps]]
+use = "GianniBYoung/rsync"
+rev = "3f431aa"
+hash = "1854a5a30d23e84bc8df24700f27957b"
+
+[[plugin.deps]]
+use = "h-hg/yamb"
+rev = "3f7c51f"
+hash = "e11b980e5635f0fbabd80931b1a1347e"
+
+[[plugin.deps]]
+use = "SL-RU/mount"
+rev = "e494101"
+hash = "533c94434955e44fd8ebdb9c140f7c87"
+
+[[plugin.deps]]
+use = "AnirudhG07/rich-preview"
+rev = "6752254"
+hash = "c9a3d0731e7d7340e2c6d6126b1f3aa3"
+
+[[plugin.deps]]
+use = "AnirudhG07/nbpreview"
+rev = "1d85745"
+hash = "d378328e5d0a1b9fb9f04ab3aade4575"
+
+[[plugin.deps]]
+use = "AnirudhG07/plugins-yazi:copy-file-contents"
+rev = "52ee2ba"
+hash = "27c50e6bc15c09096505b805b238ade0"
+
+[[flavor.deps]]
+use = "tkapias/moonfly"
+rev = "395c686"
+hash = "f1c75db953010661073c665c237c5722"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "d98f0c3"
+hash = "cada780385f75abbcfbf5343256b441"
+
+[[flavor.deps]]
+use = "kmlupreti/ayu-dark"
+rev = "8d487bc"
+hash = "4b0b04345a4001101a43b48500192532"
+
+[[flavor.deps]]
+use = "PinThePenguine/sunset"
+rev = "181acd4"
+hash = "cc4c39af7098f02c42fec223fc1fc967"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "fd85060"
+hash = "8c24a91f7e6abb2a9ac268bfbd356e77"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "fd85060"
+hash = "c40e434318a8ceffd01842f8dfb2390e"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "fd85060"
+hash = "e88895e8f8b7926f20946f273ecc7348"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "fd85060"
+hash = "c34feed32d555e79ab9a0c0a7bdda2be"

@@ -1,0 +1,6 @@
+# Basic system identification (works on any OS)
+set -gx HOSTNAME (hostname -s)
+set -gx HOSTTYPE (uname -m)
+set -gx OSTYPE (uname -s | tr '[:upper:]' '[:lower:]')
+set -gx PLATFORM (uname -srm)
+set -gx ARCH (uname -p)

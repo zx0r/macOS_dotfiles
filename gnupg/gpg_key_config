@@ -1,0 +1,28 @@
+%echo [1/5] Initializing secure key configuration
+Key-Type: EDDSA
+Key-Curve: ed25519
+Key-Usage: sign
+Subkey-Type: ECDH
+Subkey-Curve: cv25519
+Subkey-Usage: encrypt
+Name-Real: zx0r
+Name-Email: d0t_machine@proton.me
+Name-Comment: GITHUB-KEY
+Passphrase: 0310
+Expire-Date: 2y
+Preferences: SHA512 SHA384 SHA256 AES256 AES192 AES ZLIB BZIP2 ZIP Uncompressed
+%echo [2/5] Configuring keyserver for secure key exchange
+keyserver: hkps://keys.openpgp.org
+%ask-passphrase
+%no-protection
+%commit
+%echo [3/5] Generating revocation certificate
+%secring revoke.asc
+%echo [4/5] Finalizing key setup
+%pubring pubkey.asc
+%commit
+%echo [5/5] Key generation complete with TOFU enabled
+
+
+
+

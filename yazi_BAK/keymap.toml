@@ -1,0 +1,668 @@
+[manager]
+
+keymap = [
+
+  	# Spotting
+	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
+
+	{ on = [ "M","a" ], run = "plugin autofilter --args='save'", desc = "Add filter for this folder" },
+	{ on = [ "M","d" ], run = "plugin autofilter --args='delete'", desc = "Delete filter for this folder" },
+	{ on = [ "M","D" ], run = "plugin autofilter --args='delete_all'", desc = "Delete all filter" },
+	{ on = [ "O","a" ], run = "plugin autosort --args='save'", desc = "Add sort for this folder" },
+	{ on = [ "O","d" ], run = "plugin autosort --args='delete'", desc = "Delete sort for this folder" },
+	{ on = [ "O","D" ], run = "plugin autosort --args='delete_all'", desc = "Delete all filter" },
+	
+  { on = [ "<A-k>" ],    run = "plugin arrow-parent --args=-1", desc = "arrow parent up" },
+	{ on = [ "<A-j>" ],  run = "plugin arrow-parent --args=1",  desc = "arrow parent down" },
+	{ on = [ "U" ], run = "plugin cd-last", desc = "cd last path" },
+
+	{ on = [ "u","a" ], run = "plugin bookmarks --args='save'", desc = "Add hovered as bookmark" },
+	{ on = [ "u","m" ], run = "plugin bookmarks --args='modify'", desc = "modify a bookmarks key to hovered" },
+	{ on = [ "u","g" ], run = "plugin bookmarks --args='jump'", desc = "Jump to a bookmark" },
+	{ on = [ "u","d" ], run = "plugin bookmarks --args='delete'", desc = "Delete a bookmark" },
+	{ on = [ "u","D" ],	run = "plugin bookmarks --args='delete_all'", desc = "Delete all bookmarks" },
+	{ on = [ "u","l"], run = "plugin lastopen --args='jump'",         desc = "jump to last open file" },
+	{ on = [ "u","n"], run = "plugin mount",         desc = "mount manager" },
+
+	{ on = [ "I" ], run = "plugin keyjump --args='global'", desc = "keyjump" },
+	{ on = [ "i" ], run = "plugin easyjump --args=''", desc = "easyjump" },
+	{ on = [ "s" ], run = "plugin searchjump --args=''", desc = "searchjump" },
+
+	# Linemode
+	{ on = [ "z", "s" ], run = "linemode size",        desc = "Set linemode to size" },
+	{ on = [ "z", "p" ], run = "linemode permissions", desc = "Set linemode to permissions" },
+	{ on = [ "z", "m" ], run = "linemode mtime",       desc = "Set linemode to mtime" },
+	{ on = [ "z", "c" ], run = "linemode ctime",        desc = "Set linemode to ctime" },
+	{ on = [ "z", "n" ], run = "linemode none",        desc = "Set linemode to none" },
+	{ on = [ "z", "o" ], run = "linemode owner",       desc = "Set linemode to owner" },
+
+	{ on = [ "u","i" ],     run = "plugin cmd --args='lazygit'",              desc = "lazygit" },
+	{ on = [ "u","f" ], run = '''shell ' QT_QPA_PLATFORM=xcb ~/deskenv/master/qxdrag/qxdrag.py -x -e -b -p "$1"' --confirm''',desc="dragon x11" },
+	{ on = [ "u","w" ], run = '''shell ' QT_QPA_PLATFORM=wayland ~/deskenv/master/qxdrag/qxdrag.py -x -e -b -p "$1"' --confirm''',desc="dragon wayland" },
+	# { on = [ "u","w" ], run = '''shell ' GDK_BACKEND=wayland dragon -x -i -T "$1"' --confirm''',desc="dragon wayland" },
+	# { on = [ "u","r" ], run = '''shell ' GDK_BACKEND=x11 dragon -x -i -T "$1"' --confirm''',desc="dragon wayland" },
+
+	{ on = [ "<Esc>" ], run = "escape", desc = "Exit visual mode, clear selected, or cancel search" },
+	{ on = [ "q" ],     run = "quit",   desc = "Exit the process" },
+	{ on = [ "<C-q>" ], run = "close",  desc = "Close the current tab, or quit if it is last tab" },
+	{ on = ["<C-z>"], run = "suspend",            desc = "Suspend the process" },
+
+	# Navigation
+	{ on = [ "k" ], run = "arrow -1", desc = "Move cursor up" },
+	{ on = [ "j" ], run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = [ "K" ], run = "arrow -5", desc = "Move cursor up 5 lines" },
+	{ on = [ "J" ], run = "arrow 5",  desc = "Move cursor down 5 lines" },
+
+	# { on = [ "<C-k>" ], run = "arrow -20", desc = "Move cursor up 20 lines" },
+	# { on = [ "<C-j>" ], run = "arrow 20",  desc = "Move cursor up 20 lines" },
+	{ on = [ "<C-k>" ], run = "arrow -100%", desc = "Move cursor prev page" },
+	{ on = [ "<C-j>" ], run = "arrow 100%",  desc = "Move cursor next page" },
+
+	{ on = [ "b" ], run = "arrow top", desc = "Move cursor begin lines" },
+	{ on = [ "e" ], run = "arrow bottom",  desc = "Move cursor end lines" },
+
+	{ on = [ "h" ], run = "leave", desc = "Go back to the parent directory" },
+	{ on = [ "l" ], run = "enter", desc = "Enter the child directory" },
+
+	{ on = [ "H" ], run = "back",    desc = "Go back to the previous directory" },
+	{ on = [ "L" ], run = "forward", desc = "Go forward to the next directory" },
+
+	{ on = [ "<S-A-K>" ], run = "seek -5", desc = "seek up 5 units in the preview" },
+	{ on = [ "<S-A-J>" ], run = "seek 5",  desc = "seek down 5 units in the preview" },
+
+	{ on = [ "<Up>" ],    run = "arrow -1", desc = "Move cursor up" },
+	{ on = [ "<Down>" ],  run = "arrow 1",  desc = "Move cursor down" },
+	{ on = [ "<Left>" ],  run = "leave",    desc = "Go back to the parent directory" },
+	{ on = [ "<Right>" ], run = "enter",    desc = "Enter the child directory" },
+
+	# Selection
+	{ on = [ "<Space>" ], run = [ "toggle --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
+	{ on = [ "v" ],       run = "visual_mode",                        desc = "Enter visual mode (selection mode)" },
+	{ on = [ "V" ],       run = "visual_mode --unset",                desc = "Enter visual mode (unset mode)" },
+	{ on = [ "<C-a>" ],   run = "toggle_all --state=true",            desc = "Select all files" },
+	{ on = [ "<C-r>" ],   run = "toggle_all --state=none",            desc = "Inverse selection of all files" },
+
+	# Operation
+	{ on = [ "u","s"], 	run = '''shell "$SHELL" --block --confirm''', desc = "Open shell here" },
+	{ on = [ "o" ],         run = "open --interactive --hovered",     desc = "Open the currsor hovered files interactively" },
+	# { on = [ "O" ],   		run = "open",                   desc = "Open the selected files" },
+	# { on = [ "<Enter>" ],   run = "open --hovered",         desc = "Open the currsor hovered files" },
+	{ on = [ "<Enter>" ],   run = "plugin lastopen --args='open'",         desc = "Open the currsor hovered files" },
+  {	on = [ "u", "l" ], run = "plugin lastopen --args='jump'",            desc = "Jump to lastopen path" },
+  { on = [ "y" ],         run = "yank",                   desc = "Copy the selected files" },
+	{ on = [ "x" ],         run = "yank --cut",             desc = "Cut the selected files" },
+	{ on = [ "p" ],         run = "paste",                  desc = "Paste the files" },
+	{ on = [ "P" ],         run = "paste --force",          desc = "Paste the files (overwrite if the destination exists)" },
+	{ on = [ "k" ],         run = "paste --follow",         desc = "Paste the files (follow the symlinks)" },
+	{ on = [ "K" ],         run = "paste --follow --force", desc = "Paste the files (overwrite + follow)" },
+	{ on = [ "d" ],         run = "remove",                 desc = "Move the files to the trash" },
+	{ on = [ "D" ],         run = "remove --permanently",   desc = "Permanently delete the files" },
+	{ on = [ "a" ],         run = "create",                 desc = "Create a file or directory (ends with / for directories)" },
+	{ on = [ "r" ],         run = "rename",                 desc = "Rename a file or directory" },
+	{ on = [ ";" ],         run = "shell --interactive",                  desc = "Run a shell command" },
+	{ on = [ ":" ],         run = "shell --block --interactive",          desc = "Run a shell command (block the UI until the command finishes)" },
+	{ on = [ "." ],         run = "hidden toggle",          desc = "Toggle the visibility of hidden files" },
+
+	# Filter & file
+	{ on = [ "f","t" ], 	run = "filter --smart", 			 desc = "Filter the files" },
+	# { on = [ "f","d" ],     run = "search fd",              desc = "Search files by name using fd" },
+	{ on = [ "f","g" ],     run = "plugin fg --args='rg'",  desc = "find file by content (ripgrep match)" },
+	{ on = [ "f","G" ],     run = "plugin fg",              desc = "find file by content (fuzzy match)" },
+	{ on = [ "f","e" ],     run = "search none",            desc = "Cancel the ongoing search" },
+	{ on = [ "f","z" ],     run = "plugin zoxide",            desc = "Jump to a directory using zoxide" },
+	{ on = [ "f","f" ],     run = "plugin fg --args='fzf'",   desc = "Jump to a directory, or reveal a file using fzf" },
+	{ on = [ "f","n" ], 	run = "find --smart",            		 desc = "Find next file" },
+	{ on = [ "f","p" ], 	run = "find --previous --smart", 		 desc = "Find previous file" },
+	{ on = [ "n" ], 		run = "find_arrow",              		 desc = "Go to next found file" },
+	{ on = [ "N" ], 		run = "find_arrow --previous",   		 desc = "Go to previous found file" },
+
+
+	# Copy
+	{ on = [ "c", "c" ], run = "copy path",             desc = "cp absolute path" },
+	{ on = [ "c", "d" ], run = "copy dirname",          desc = "cp parent path" },
+	{ on = [ "c", "f" ], run = "copy filename",         desc = "cp filename" },
+	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "cp filename without ext" },
+
+
+	# Sort
+	# Sorting
+	{ on = [ "m", "M" ], run = [ "sort mtime --reverse=no"], desc = "Sort by modified time" },
+	{ on = [ "m", "m" ], run = [ "sort mtime --reverse"],    desc = "Sort by modified time (reverse)" },
+	{ on = [ "m", "b" ], run = [ "sort btime --reverse=no"], desc = "Sort by birth time" },
+	{ on = [ "m", "B" ], run = [ "sort btime --reverse"],    desc = "Sort by birth time (reverse)" },
+	{ on = [ "m", "e" ], run = "sort extension --reverse=no",                   desc = "Sort by extension" },
+	{ on = [ "m", "E" ], run = "sort extension --reverse",                      desc = "Sort by extension (reverse)" },
+	{ on = [ "m", "a" ], run = "sort alphabetical --reverse=no",                desc = "Sort alphabetically" },
+	{ on = [ "m", "A" ], run = "sort alphabetical --reverse",                   desc = "Sort alphabetically (reverse)" },
+	{ on = [ "m", "n" ], run = "sort natural --reverse=no",                     desc = "Sort naturally" },
+	{ on = [ "m", "N" ], run = "sort natural --reverse",                        desc = "Sort naturally (reverse)" },
+	{ on = [ "m", "s" ], run = [ "sort size --reverse=no"],   desc = "Sort by size" },
+	{ on = [ "m", "S" ], run = [ "sort size --reverse"],      desc = "Sort by size (reverse)" },
+	{ on = [ "m", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
+	# Tabs
+	{ on = [ "t" ], run = "tab_create --current", desc = "Create a new tab using the current path" },
+
+	{ on = [ "1" ], run = "tab_switch 0", desc = "Switch to the first tab" },
+	{ on = [ "2" ], run = "tab_switch 1", desc = "Switch to the second tab" },
+	{ on = [ "3" ], run = "tab_switch 2", desc = "Switch to the third tab" },
+	{ on = [ "4" ], run = "tab_switch 3", desc = "Switch to the fourth tab" },
+	{ on = [ "5" ], run = "tab_switch 4", desc = "Switch to the fifth tab" },
+	{ on = [ "6" ], run = "tab_switch 5", desc = "Switch to the sixth tab" },
+	{ on = [ "7" ], run = "tab_switch 6", desc = "Switch to the seventh tab" },
+	{ on = [ "8" ], run = "tab_switch 7", desc = "Switch to the eighth tab" },
+	{ on = [ "9" ], run = "tab_switch 8", desc = "Switch to the ninth tab" },
+
+	{ on = [ "<A-h>" ], run = "tab_switch -1 --relative", desc = "Switch to the previous tab" },
+	{ on = [ "<A-l>" ], run = "tab_switch 1 --relative",  desc = "Switch to the next tab" },
+
+	# { on = [ "<A-->" ], run = "tab_swap -1", desc = "Swap the current tab with the previous tab" },
+	# { on = [ "<A-=>" ], run = "tab_swap 1",  desc = "Swap the current tab with the next tab" },
+
+	# Tasks
+	{ on = [ "w" ], run = "tasks_show", desc = "Show the tasks manager" },
+
+	# Goto
+	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go by interactive" },
+	{ on = [ "g", "r" ],       run = "cd /",          desc = "Go to /" },
+	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go to Home" },
+  { on = [ "g", "p" ],       run = "cd ~/projects",     desc = "Go to Projects" },
+	{ on = [ "g", "d" ],       run = "cd ~/downloads",   desc = "Go to Downloads" },
+	{ on = [ "g", "i" ],       run = "cd ~/images",          desc = "Go to Image" },
+  { on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to Config" },
+	{ on = [ "g", "n" ],       run = "cd ~/.config/nvim-profiles/",     desc = "Go to Nvim Profiles" },
+  { on = [ "g", "y" ],       run = "cd ~/.config/yazi/",          desc = "Go to Yazi Config" },
+	# { on = [ "g", "c" ],       run = "cd ~/.config/fish",     desc = "Go to Fish Config" },
+	# { on = [ "g", "c" ],       run = "cd ~/.config/tmux",     desc = "Go to Tmux Config" },
+	# { on = [ "g", "c" ],       run = "cd ~/.config/kitty",     desc = "Go to Kitty Config" },
+	# { on = [ "g", "t" ],       run = "cd ~/tool/",          desc = "Go to tool" },
+	# { on = [ "g", "o" ],       run = "cd ~/video",          desc = "Go to video" },
+	# { on = [ "g", "j" ],       run = "cd $HOME/deskenv/dev",          desc = "Go to dev" },
+	# { on = [ "g", "k" ],       run = "cd $HOME/deskenv/master",       desc = "Go to master" },
+	# { on = [ "g", "u" ],       run = "cd /media/UUI/",     desc = "Go to Mobile disk" },
+
+	# Help
+	{ on = [ "?" ], run = "help", desc = "Open help" },
+]
+
+[tasks]
+
+keymap = [
+	{ on = [ "<Esc>" ], run = "close", desc = "Hide the task manager" },
+	{ on = [ "<C-q>" ], run = "close", desc = "Hide the task manager" },
+	{ on = [ "w" ],     run = "close", desc = "Hide the task manager" },
+
+	{ on = [ "k" ], run = "arrow -1", desc = "Move cursor up" },
+	{ on = [ "j" ], run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = [ "<Up>" ],   run = "arrow -1", desc = "Move cursor up" },
+	{ on = [ "<Down>" ], run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = [ "<Enter>" ], run = "inspect", desc = "Inspect the task" },
+	{ on = [ "x" ],       run = "cancel",  desc = "Cancel the task" },
+
+	{ on = [ "?" ], run = "help", desc = "Open help" }
+]
+
+[select]
+
+keymap = [
+	{ on = [ "<C-q>" ],   run = "close",          desc = "Cancel selection" },
+	{ on = [ "<Esc>" ],   run = "close",          desc = "Cancel selection" },
+	{ on = [ "<Enter>" ], run = "close --submit", desc = "Submit the selection" },
+
+	{ on = [ "k" ], run = "arrow -1", desc = "Move cursor up" },
+	{ on = [ "j" ], run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = [ "K" ], run = "arrow -5", desc = "Move cursor up 5 lines" },
+	{ on = [ "J" ], run = "arrow 5",  desc = "Move cursor down 5 lines" },
+
+	{ on = [ "<Up>" ],   run = "arrow -1", desc = "Move cursor up" },
+	{ on = [ "<Down>" ], run = "arrow 1",  desc = "Move cursor down" },
+
+
+	{ on = [ "?" ], run = "help", desc = "Open help" }
+]
+
+[input]
+
+keymap = [
+	{ on = [ "<Backspace>" ], run = "backspace" },
+	{ on = [ "<C-q>" ],       run = "close",          desc = "Cancel input" },
+	{ on = [ "<Enter>" ],     run = "close --submit", desc = "Submit the input" },
+	{ on = [ "<Esc>" ],       run = "escape",         desc = "Go back the normal mode, or cancel input" },
+
+	# Mode
+	{ on = [ "i" ], run = "insert",          desc = "Enter insert mode" },
+	{ on = [ "a" ], run = "insert --append", desc = "Enter append mode" },
+	{ on = [ "v" ], run = "visual",          desc = "Enter visual mode" },
+
+	# Navigation
+	{ on = [ "h" ], run = "move -1", desc = "Move cursor left" },
+	{ on = [ "l" ], run = "move 1",  desc = "Move cursor right" },
+
+	{ on = [ "0" ], run = "move -999",                       desc = "Move to the BOL" },
+	{ on = [ "$" ], run = "move 999",                        desc = "Move to the EOL" },
+	{ on = [ "I" ], run = [ "move -999", "insert" ],         desc = "Move to the BOL, and enter insert mode" },
+	{ on = [ "A" ], run = [ "move 999", "insert --append" ], desc = "Move to the EOL, and enter append mode" },
+	{ on = [ "<C-a>" ], run = "move -999",                       desc = "Move to the BOL" },
+	{ on = [ "<C-e>" ], run = "move 999",                       desc = "Move to the EOL" },
+
+	{ on = [ "<Left>" ],  run = "move -1", desc = "Move cursor left" },
+	{ on = [ "<Right>" ], run = "move 1",  desc = "Move cursor right" },
+
+	{ on = [ "b" ], run = "backward",              desc = "Move to the beginning of the previous word" },
+	{ on = [ "w" ], run = "forward",               desc = "Move to the beginning of the next word" },
+	{ on = [ "e" ], run = "forward --end-of-word", desc = "Move to the end of the next word" },
+	{ on = [ "H" ], run = "backward",              desc = "Move to the beginning of the previous word" },
+	{ on = [ "L" ], run = "forward --end-of-word", desc = "Move to the end of the next word" },
+
+	# Deletion
+	#'db' will delete a word before cursor, 'de' will delete a word after cursor
+	#'d0' will delete all word before cursor, 'd$' will delete all word after cursor
+	{ on = [ "d" ], run = "delete --cut",                              desc = "Cut the selected characters" },
+	{ on = [ "c" ], run = "delete --cut --insert",                     desc = "Cut the selected characters, and enter insert mode" },
+	{ on = [ "x" ], run = [ "delete --cut", "move 1 --in-operating" ], desc = "Cut the current character" },
+
+	# Yank/Paste
+	{ on = [ "y" ], run = "yank",           desc = "Copy the selected characters" },
+	{ on = [ "p" ], run = "paste",          desc = "Paste the copied characters after the cursor" },
+	{ on = [ "P" ], run = "paste --before", desc = "Paste the copied characters before the cursor" },
+
+	# Undo/Redo
+	{ on = [ "u" ],     run = "undo", desc = "Undo the last operation" },
+	{ on = [ "<C-r>" ], run = "redo", desc = "Redo the last operation" },
+
+	# Help
+	{ on = [ "?" ], run = "help", desc = "Open help" }
+]
+
+[help]
+
+prepend_keymap = [
+    # glow.yazi
+    { on = ["<C-e>"], run = "seek 5" },
+    { on = ["<C-y>"], run = "seek -5" },
+]
+
+keymap = [
+	{ on = [ "<Esc>" ], run = "escape", desc = "Clear the filter, or hide the help" },
+	{ on = [ "q" ],     run = "close",  desc = "Exit the process" },
+	{ on = [ "<C-q>" ], run = "close",  desc = "Hide the help" },
+
+	# Navigation
+	{ on = [ "k" ], run = "arrow -1", desc = "Move cursor up" },
+	{ on = [ "j" ], run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = [ "K" ], run = "arrow -5", desc = "Move cursor up 5 lines" },
+	{ on = [ "J" ], run = "arrow 5",  desc = "Move cursor down 5 lines" },
+
+	{ on = [ "<Up>" ],   run = "arrow -1", desc = "Move cursor up" },
+	{ on = [ "<Down>" ], run = "arrow 1",  desc = "Move cursor down" },
+
+	# Filtering
+	{ on = [ "/" ], run = "filter", desc = "Apply a filter for the help items" },
+]
+
+[confirm]
+keymap = [
+	{ on = "<Esc>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<C-[>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<C-c>",   run = "close",          desc = "Cancel the confirm" },
+	{ on = "<Enter>", run = "close --submit", desc = "Submit the confirm" },
+
+	{ on = "n", run = "close",          desc = "Cancel the confirm" },
+	{ on = "y", run = "close --submit", desc = "Submit the confirm" },
+
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+
+	{ on = "K", run = "arrow -5", desc = "Move cursor up" },
+	{ on = "J", run = "arrow 5",  desc = "Move cursor down" },
+
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
+]
+
+
+[[manager.prepend_keymap]]
+# on = "<C-y>"
+on  = [ "c","l" ]
+run = [ "plugin clipboard" ]
+desc = "clip to clipboard"
+
+
+[[manager.prepend_keymap]]
+on  = [ "c","l" ]
+run = ['''
+	shell --confirm 'for path in "$@"; do echo -en "file://${path}\n"; done | wl-copy -t text/uri-list; wl-paste | xclip -i -selection clipboard -rmlastnl -t text/uri-list'
+''' ]
+desc = "clip to wayland clipboard"
+
+[[manager.prepend_keymap]]
+on  = [ "c","o" ]
+run = ['''
+	shell --confirm 'for path in "$@"; do  echo -en "file://${path}\n"; done |  xclip -i -selection clipboard -rmlastnl -t text/uri-list'
+''' ]
+desc = "clip to x11 clipboard"
+
+## Plugin keymaps
+[[manager.prepend_keymap]]
+on = ["<F5>"]
+run = "refresh"
+desc = "Refresh the current directory"
+
+[[manager.prepend_keymap]]
+on = ["A"]
+run = "create --dir"
+desc = "Create a directory"
+
+[[manager.prepend_keymap]]
+on = "<C-k>"
+run = "seek -5"
+desc = "Seek up 5 units in the preview"
+[[manager.prepend_keymap]]
+on = "<C-j>"
+run = "seek 5"
+desc = "Seek down 5 units in the preview"
+## Max Preview
+[[manager.prepend_keymap]]
+on = ["T"]
+run = "plugin --sync max-preview"
+desc = "Maximize or restore preview"
+[[manager.prepend_keymap]]
+on = ["B"]
+run = "plugin --sync hide-preview"
+desc = "hide preview window"
+
+## SHell Opener
+[[manager.prepend_keymap]]
+on = ["<C-s>"]
+run = 'shell "$SHELL" --block --confirm'
+desc = "Open shell here"
+
+[[manager.prepend_keymap]]
+on = ["k"]
+run = "plugin --sync arrow --args=-1"
+
+[[manager.prepend_keymap]]
+on = ["j"]
+run = "plugin --sync arrow --args=1"
+
+[[manager.prepend_keymap]]
+on = ["K"]
+run = "plugin --sync parent-arrow --args=-1"
+
+[[manager.prepend_keymap]]
+on = ["J"]
+run = "plugin --sync parent-arrow --args=1"
+
+[[manager.prepend_keymap]]
+on = ["<C-p>"]
+run = "plugin --sync smart-paste"
+desc = "Paste into the hovered directory or CWD"
+
+## Bookmark persistence
+[[manager.prepend_keymap]]
+on = ["u", "a"]
+run = "plugin bookmarks-persistence --args=save"
+desc = "Save current position as a bookmark"
+
+[[manager.prepend_keymap]]
+on = ["u", "g"]
+run = "plugin bookmarks-persistence --args=jump"
+desc = "Jump to a bookmark"
+
+[[manager.prepend_keymap]]
+on = ["u", "d"]
+run = "plugin bookmarks-persistence --args=delete"
+desc = "Delete a bookmark"
+
+[[manager.prepend_keymap]]
+on = ["u", "D"]
+run = "plugin bookmarks-persistence --args=delete_all"
+desc = "Delete all bookmarks"
+
+[[manager.prepend_keymap]]
+on = ["f", "G"]
+run = "plugin fg --args='rg'"
+desc = "find file by content (ripgrep match)"
+[[manager.prepend_keymap]]
+on = ["f", "f"]
+run = "plugin fg --args='fzf'"
+desc = "find file by filename"
+[[manager.prepend_keymap]]
+on = ["f", "g"]
+run = "plugin fg"
+desc = "find file by content (fuzzy match)"
+[[manager.prepend_keymap]]
+on = ["f", "s"]
+run = "plugin smart-filter"
+desc = "Smart filter"
+[[manager.prepend_keymap]]
+on = ["f", "c"]
+run = "plugin jump-to-char"
+desc = "Jump to char"
+
+[[manager.prepend_keymap]]
+on = ["f", "a"]
+run = "plugin file-actions --args='around '"
+desc = "Perform actions on selected files"
+
+## Chmod
+[[manager.prepend_keymap]]
+on = ["c", "m"]
+run = "plugin chmod"
+desc = "Chmod on selected files"
+## diff.yazi
+[[manager.prepend_keymap]]
+on = ["<C-d>"]
+run = "plugin diff"
+desc = "Diff the selected with the hovered file"
+
+[[manager.prepend_keymap]]
+on = ["l"]
+run = "plugin bypass --args=smart_enter"
+desc = "Recursively enter child directory, skipping children with only a single subdirectory"
+[[manager.prepend_keymap]]
+on = ["H"]
+run = "plugin bypass --args=reverse"
+desc = "Recursively enter parent directory, skipping parents with only a single subdirectory"
+
+#[[manager.prepend_keymap]]
+#on = [ "m" ]
+#run = "plugin relative-motions"
+#desc = "Trigger a new relative motion"
+
+
+## Drag and Drop functionality using Finder
+[[manager.prepend_keymap]]
+on = ["<C-n>"]
+run = '''
+	shell 'open -R "$1"' --confirm
+'''
+desc = "Open file in Finder to drag and drop"
+## Testing plugin for understanding
+[[manager.prepend_keymap]]
+on = ["e", "e"]
+run = [
+  "select --state=none",
+  "rename --hovered --force --cursor=before_ext",
+  "select --state=none",
+]
+desc = "Test plugin"
+
+## Mactagging
+[[manager.prepend_keymap]]
+on = ["b", "r"]
+run = 'plugin mactag --args="add Red"'
+desc = "Tag selected files with red"
+
+[[manager.prepend_keymap]]
+on = ["b", "R"]
+run = 'plugin mactag --args="remove Red"'
+desc = "Remove red tag from selected files"
+[[manager.prepend_keymap]]
+on = ["b", "a"]
+run = "plugin mactags --args=add"
+desc = "Add tagging colors to a file/folder"
+[[manager.prepend_keymap]]
+on = ["b", "x"]
+run = "plugin mactags --args=remove"
+desc = "removes input tags from all tags to a file/folder"
+[[manager.prepend_keymap]]
+on = ["b", "d"]
+run = "plugin mactags --args=remove_all"
+desc = "removed all the tags attached to the file/folder"
+[[manager.prepend_keymap]]
+on = ["b", "s"]
+run = "plugin mactags --args=set"
+desc = "completely replace existing tags with new ones"
+[[manager.prepend_keymap]]
+on = ["b", "f"]
+run = "plugin mactags --args=find_all"
+desc = "find all files with set color"
+[[manager.prepend_keymap]]
+on = ["b", "o"]
+run = "plugin mactags --args=display"
+desc = "find all files with set color"
+
+[[manager.prepend_keymap]]
+on = ["c", "a"]
+run = "plugin ouch --args=zip"
+desc = "Compress with ouch"
+[[manager.prepend_keymap]]
+on = "<C-y>"
+run = ["plugin system-clipboard"]
+
+[[manager.prepend_keymap]]
+on = ["i"]
+run = "plugin easyjump"
+desc = "easyjump"
+
+# https://github.com/AnirudhG07/custom-shell.yazi
+[[manager.prepend_keymap]]
+on = ["'", ";"]
+run = "plugin custom-shell --args=auto"
+desc = "custom-shell as default"
+[[manager.prepend_keymap]]
+on = ["'", "t"]
+run = "plugin custom-shell --args='custom auto foot tmux'"
+desc = "Run tmux"
+[[manager.prepend_keymap]]
+on = ["'", "l"]
+run = "plugin custom-shell --args='custom auto lazygit'"
+desc = "Run lazygit"
+[[manager.prepend_keymap]]
+on = ["'", "h"]
+run = "plugin custom-shell --args=history"
+desc = "Show Custom-shell history"
+
+# https://github.com/KKV9/command.yazi
+[[manager.prepend_keymap]]
+on = ["c", "p"]
+run = "plugin command"
+desc = "Yazi command prompt"
+
+[[manager.prepend_keymap]]
+on = ["g", "i"]
+run = "plugin lazygit"
+desc = "run lazygit"
+
+[[manager.prepend_keymap]]
+on = "R"
+run = "plugin rsync"
+desc = "Copy files using rsync"
+# [[manager.prepend_keymap]]
+# on   = "R"
+# run  = "plugin rsync --args='user@server.com'"
+# desc = "Copy files using rsync to default location"
+
+
+prepend_keymap = [
+  { "on" = ["<C-s>"], "run" = "shell \"$SHELL\" --block --confirm", "desc" = "Open shell here" },
+  { "on" = ["c", "a"], "run" = "plugin compress", "desc" = "Archive selected files" },
+  { "on" = "<C-u>", "run" = "seek -5", "desc" = "Seek up 5 units in the preview" },
+  { "on" = "<C-d>", "run" = "seek 5", "desc" = "Seek down 5 units in the preview" },
+  { "on" = "K", "run" = "arrow -50%", "desc" = "Move cursor up half page" },
+  { "on" = "J", "run" = "arrow 50%", "desc" = "Move cursor down half page" },
+  { "on" = "<A-k>", "run" = "arrow -5", "desc" = "Move cursor up 5 units" },
+  { "on" = "<A-j>", "run" = "arrow 5", "desc" = "Move cursor down 5 units" },
+  { "on" = ["f", "g"], "run" = "plugin fg", "desc" = "Find file by content (fuzzy match)" },
+  { "on" = ["f", "G"], "run" = "plugin fg --args='rg'", "desc" = "Find file by content (ripgrep match)" },
+  { "on" = ["f", "n"], "run" = "plugin fg --args='fzf'", "desc" = "Find file by filename" },
+  { "on" = ["f", "f"], "run" = "filter --smart", "desc" = "Filter files" },
+  { "on" = ["f", "F"], "run" = "plugin smart-filter", "desc" = "Smart Filter" },
+  { "on" = "s", "run" = "plugin searchjump", "desc" = "Searchjump mode" },
+  { "on" = "S", "run" = "search fd", "desc" = "Search files by name using fd" },
+  { "on" = "T", "run" = "plugin --sync hide-preview", "desc" = "Hide or show the preview" },
+  { "on" = "<C-y>", "run" = "shell 'for path in \"$@\"; do echo \"file =//$path\"; done | wl-copy -t text/uri-list' --confirm", "desc" = "Copy to clipboard" },
+  { "on" = "A", "run" = "create --dir", "desc" = "Create a directory" },
+  { "on" = "!", "run" = "shell \"$SHELL\" --block", "desc" = "Open shell here" },
+  { "on" = "<F5>", "run" = "refresh", "desc" = "Refresh the current directory" },
+  { "on" = "<C-k>", "run" = "seek -5", "desc" = "Seek up 5 units in the preview" },
+  { "on" = "<C-j>", "run" = "seek 5", "desc" = "Seek down 5 units in the preview" },
+  { "on" = "T", "run" = "plugin max-preview", "desc" = "Maximize or restore preview" },
+  { "on" = "B", "run" = "plugin hide-preview", "desc" = "Hide preview window" },
+  { "on" = "k", "run" = "plugin arrow --args=-1", "desc" = "Move cursor up" },
+  { "on" = "j", "run" = "plugin arrow --args=1", "desc" = "Move cursor down" },
+  { "on" = "K", "run" = "plugin parent-arrow --args=-1", "desc" = "Move parent cursor up" },
+  { "on" = "J", "run" = "plugin parent-arrow --args=1", "desc" = "Move parent cursor down" },
+  { "on" = "<C-p>", "run" = "plugin smart-paste", "desc" = "Paste into the hovered directory or CWD" },
+  { "on" = ["u", "a"], "run" = "plugin yamb --args=save", "desc" = "Add bookmark" },
+  { "on" = ["u", "g"], "run" = "plugin yamb --args=jump_by_key", "desc" = "Jump bookmark by key" },
+  { "on" = ["u", "G"], "run" = "plugin yamb --args=jump_by_fzf", "desc" = "Jump bookmark by fzf" },
+  { "on" = ["u", "d"], "run" = "plugin yamb --args=delete_by_key", "desc" = "Delete bookmark by key" },
+  { "on" = ["u", "D"], "run" = "plugin yamb --args=delete_by_fzf", "desc" = "Delete bookmark by fzf" },
+  { "on" = ["u", "A"], "run" = "plugin yamb --args=delete_all", "desc" = "Delete all bookmarks" },
+  { "on" = ["u", "r"], "run" = "plugin yamb --args=rename_by_key", "desc" = "Rename bookmark by key" },
+  { "on" = ["u", "R"], "run" = "plugin yamb --args=rename_by_fzf", "desc" = "Rename bookmark by fzf" },
+  { "on" = ["f", "G"], "run" = "plugin fg --args='rg'", "desc" = "Find file by content (ripgrep match)" },
+  { "on" = ["f", "f"], "run" = "plugin fg --args='fzf'", "desc" = "Find file by filename" },
+  { "on" = ["f", "g"], "run" = "plugin fg", "desc" = "Find file by content (fuzzy match)" },
+  { "on" = ["f", "s"], "run" = "plugin smart-filter", "desc" = "Smart filter" },
+  { "on" = ["f", "c"], "run" = "plugin jump-to-char", "desc" = "Jump to char" },
+  { "on" = ["f", "a"], "run" = "plugin file-actions --args='around '", "desc" = "Perform actions on selected files" },
+  { "on" = ["c", "m"], "run" = "plugin chmod", "desc" = "Chmod on selected files" },
+  { "on" = "<C-d>", "run" = "plugin diff", "desc" = "Diff the selected with the hovered file" },
+  { "on" = "l", "run" = "plugin bypass --args=smart_enter", "desc" = "Recursively enter child directory" },
+  { "on" = "H", "run" = "plugin bypass --args=reverse", "desc" = "Recursively enter parent directory" },
+  { "on" = "<C-n>", "run" = "shell 'open -R \"$1\"' --confirm", "desc" = "Open file in Finder to drag and drop" },
+  { "on" = ["e", "e"], "run" = ["select --state=none", "rename --hovered --force --cursor=before_ext", "select --state=none"], "desc" = "Test plugin" },
+  { "on" = ["'", "l"], "run" = "plugin custom-shell --args='custom zsh \"lazygit\"'", "desc" = "Open lazygit" },
+  { "on" = ["'", ";"], "run" = "plugin custom-shell --args='custom zsh \"echo hi\" --orphan'", "desc" = "Custom shell command" },
+  { "on" = ["'", "h"], "run" = "plugin custom-shell --args=history", "desc" = "Shell history" },
+  { "on" = ["'", "t"], "run" = "plugin custom-shell --args='auto --interactive'", "desc" = "Interactive shell" },
+  { "on" = ["b", "a"], "run" = "plugin mactag --args=add", "desc" = "Tag selected files" },
+  { "on" = ["b", "r"], "run" = "plugin mactag --args=remove", "desc" = "Untag selected files" },
+  { "on" = ["b", "a"], "run" = "plugin mactags --args=add", "desc" = "Add tagging colors to a file/folder" },
+  { "on" = ["b", "x"], "run" = "plugin mactags --args=remove", "desc" = "Remove input tags from all tags" },
+  { "on" = ["b", "d"], "run" = "plugin mactags --args=remove_all", "desc" = "Remove all tags attached to the file/folder" },
+  { "on" = ["b", "s"], "run" = "plugin mactags --args=set", "desc" = "Replace existing tags with new ones" },
+  { "on" = ["b", "f"], "run" = "plugin mactags --args=find_all", "desc" = "Find all files with set color" },
+  { "on" = ["b", "o"], "run" = "plugin mactags --args=display", "desc" = "Display all files with set color" },
+  { "on" = ["c", "a"], "run" = "plugin ouch --args=zip", "desc" = "Compress with ouch" },
+  { "on" = "<C-y>", "run" = "plugin system-clipboard", "desc" = "Copy to system clipboard" },
+  { "on" = "i", "run" = "plugin easyjump", "desc" = "Easyjump" },
+  { "on" = "<C-v>", "run" = "shell --confirm 'qlmanage -p \"$@\"'", "desc" = "Preview", "for" = "macos" },
+  { "on" = "<C-1>", "run" = "plugin copy-file-contents", "desc" = "Copy contents of file" },
+  { "on" = ["g", "r"], "run" = "shell 'ya pub dds-cd --str \"$(git rev-parse --show-toplevel)\"' --confirm", "desc" = "Go to git root" },
+  { "on" = "<C-p>", "run" = "shell 'qlmanage -p \"$@\"' --confirm", "desc" = "Preview" },
+  { "on" = ["g", "b"], "run" = "shell 'gh browse .'", "desc" = "Browse repo on GitHub" },
+  { "on" = ["g", "f"], "run" = "shell 'gh browse $(git ls-files $0) --branch=$(git branch --show-current)'", "desc" = "Browse file on GitHub" }
+]
+"append_keymap" = [
+  { "on" = "e", "run" = "open", "desc" = "Open the selected files" },
+  { "on" = "E", "run" = "open --interactive", "desc" = "Open the selected files interactively" },
+  { "on" = ["g", "n"], "run" = "cd ~/.config/nvim/", "desc" = "Go to the nvim directory" },
+  { "on" = ["g", "v"], "run" = "cd ~/videos/", "desc" = "Go to the videos directory" },
+  { "on" = ["g", "p"], "run" = "cd ~/pictures/", "desc" = "Go to the pictures directory" },
+  { "on" = ["g", "s"], "run" = "cd ~/pictures/screenshots/", "desc" = "Go to the screenshots directory" },
+  { "on" = ["g", "D"], "run" = "cd ~/documents/", "desc" = "Go to the docs directory" },
+  { "on" = ["g", "o"], "run" = "cd ~/documents/obsidian-vaults", "desc" = "Go to the obsidian directory" },
+  { "on" = ["g", "e"], "run" = "cd ~/dev/", "desc" = "Go to the dev directory" }
+]
+  
+
+

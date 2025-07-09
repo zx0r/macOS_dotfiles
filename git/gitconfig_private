@@ -1,0 +1,8 @@
+# Add this file to your .gitignore to keep it out of version control. 
+# This approach maintains privacy while allowing you to use different author information for different contexts.
+
+# Private Git author configuration
+set -gx GIT_AUTHOR_NAME "Private Name"
+set -gx GIT_AUTHOR_EMAIL "private.email@domain.com"
+set -gx GIT_COMMITTER_NAME "Private Name"
+set -gx GIT_COMMITTER_EMAIL "private.email@domain.com"

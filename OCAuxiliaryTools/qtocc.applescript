@@ -1,0 +1,1 @@
+do shell script "diskutil mount disk1s1" with administrator privileges
